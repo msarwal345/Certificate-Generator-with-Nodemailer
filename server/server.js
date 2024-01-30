@@ -1,15 +1,14 @@
-const express=require("express");
-const cors=require("cors");
-const mongoose=require("mongoose");
-const xlsx=require("xlsx");
-const data=require('./model/model');
-const controller=require('./controller/controller');
-const app=express();
+const express = require("express");
+const cors = require("cors");
+const usercontroller = require('./controller/userController');
+const certcontroller = require('./controller/certController');
+const app = express();
 
 app.use(cors());
 
-app.use('/',controller);
+app.use('/', usercontroller); 
+app.use('/', certcontroller); 
 
-app.listen(5000,()=>{
-    console.log('Port Connected');
-})
+app.listen(5000, () => {
+  console.log('Port Connected');
+});

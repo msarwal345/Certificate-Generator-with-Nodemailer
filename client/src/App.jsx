@@ -1,42 +1,47 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import axios from 'axios';
+
 export default function App() {
+  const [file, setFile] = useState(null);
+  const [uploadFile, setUploadFile] = useState('');
 
-const [file,setFile]=useState(null);
-const[uploadfile,setUploadfile]=useState('');
-
-
-const handlechange=(e)=>{
-  setFile(e.target.files[0]);
-}
-
-const handleSubmit= async ()=>{
-  if(!file){
-    alert('Please fill all the fields');
-    return;
+  const handleChange = (e) => {
+    setFile(e.target.files[0]);
   }
 
-  const formData = new FormData();
-  formData.append('file', file);
+  const handleSubmit = async () => {
+    if (!file) {
+      alert('Please fill all the fields');
+      return;
+    }
 
-  try{
-  const res=await axios.post('http://localhost:5000/',formData);
-  const result=res.data;
-  setUploadfile(result.message);
+    const formData = new FormData();
+    formData.append('file', file);
 
-  }catch(error){
-    console.error("Error uploading file",error);
+    try {
+      // Upload the file to the server
+      const uploadRes = await axios.post('http://localhost:5000/', formData);
+      const uploadResult = uploadRes.data.message;
+      setUploadFile(uploadResult);
+
+      // Trigger the process to generate certificates, send emails, and delete records
+      if (uploadResult === 'Data uploaded successfully') {
+        const fetchRes = await fetch('http://localhost:5000/send-certificates');
+        const fetchResult = await fetchRes.json();
+        console.log(fetchResult); // Log the result from the server
+      }
+    } catch (error) {
+      console.error("Error uploading file", error);
+    }
   }
-
-}
 
   return (
     <div>
       <div>
-         Put Your excel file Here.....
-       <div><input type='file'onChange={handlechange}/></div>
-       <button type='submit' onClick={handleSubmit}>Submit</button>
-       {uploadfile && <div className="upload-result">{uploadfile}</div>}
+        Put Your excel file Here.....
+        <div><input type='file' onChange={handleChange} /></div>
+        <button type='submit' onClick={handleSubmit}>Submit</button>
+        {uploadFile && <div className="upload-result">{uploadFile}</div>}
       </div>
     </div>
   )

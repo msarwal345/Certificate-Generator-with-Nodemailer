@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-
-uri = "mongodb+srv://mani:gearfive@cluster0.kxdqrri.mongodb.net/Cert";
+const config=require('config');
+const uri=config.get('url')
 
 mongoose.connect(uri)
   .then(() => console.log('DataBase Connected'))
