@@ -3,8 +3,10 @@ const nodemailer = require('nodemailer');
 const express = require('express');
 const CertModel = require('../model/model'); 
 const config=require('config');
-const password=config.get('pass')
+const password=config.get('password')
 const email=config.get('user')
+const getCertificateHTML=require('../helper/helper');
+
 
 const router = express.Router();
 
@@ -16,18 +18,6 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const getCertificateHTML = (record) => {
-  return `
-    <html>
-      <body>
-        <h1>Certificate of Completion</h1>
-        <p>This is to certify that ${record.Name} has completed the course.</p>
-        <p>Email: ${record.Email}</p>
-        <p>Mobile: ${record.Mobile}</p>
-      </body>
-    </html>
-  `;
-};
 
 router.get("/send-certificates", async (req, res) => {
   try {
@@ -46,7 +36,8 @@ router.get("/send-certificates", async (req, res) => {
 
       await page.setContent(certificateHTML);
 
-      const pdfBuffer = await page.pdf({ format: 'A4' });
+
+      const pdfBuffer = await page.pdf({ width: '8in', height: '5.85in' });
 
       const pdfFileName = `${record.Name}_certificate.pdf`;
 

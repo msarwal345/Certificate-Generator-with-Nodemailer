@@ -9,7 +9,6 @@ mongoose.connect(uri)
 const newSchema = new mongoose.Schema({
   Name: { type: String },
   Email: { type: String },
-  Mobile: { type: Number } 
 });
 
 const CertModel = mongoose.model('Cert', newSchema);

@@ -1,4 +1,3 @@
-// userController.js
 const express = require('express');
 const CertModel = require('../model/model');
 const router = express.Router();
