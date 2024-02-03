@@ -1,0 +1,38 @@
+/* ContactUs.css */
+
+.contact-us {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input,
+  textarea {
+    margin-bottom: 10px;
+    padding: 8px;
+  }
+  
+  button {
+    background-color: #46ed80;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,56 @@
+.hero-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hero-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  filter: blur(5px); /* Reduced blur effect */
+}
+
+.hero-image {
+  width: 100%;
+  opacity: 0.8;
+  /* You can add additional styling for the image if needed */
+}
+
+.hero-content {
+  z-index: 1;
+  text-align: center;
+  color: #fff; /* Set your desired text color */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #241f1f;
+  font-weight: 450;
+
+   /* Set h1 text color to black */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #292424; /* Set p text color to black */
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #28a745; /* Light green button color */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #5f7f2b; /* Darker green on hover */
+}

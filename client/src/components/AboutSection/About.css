@@ -1,0 +1,30 @@
+/* About.css */
+
+.about-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 100px;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  line-height: 1.5;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+.image-container img {
+  max-width: 70%;
+  height: auto;
+}
+
+/* Add more specific styling as needed */
