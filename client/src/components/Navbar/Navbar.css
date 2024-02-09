@@ -1,13 +1,12 @@
-/* Navbar.css */
 .navbar {
   background-color: #343a40;
-  padding: 10px 0; /* Padding on top and bottom */
-  border-bottom: 2px solid #28a745; /* Green border at the bottom */
+  padding: 2px 0;
+  border-bottom: 2px solid #28a745; 
 }
 
 .navbar-brand {
-  color: #28a745 !important; /* Green text for the brand */
-  font-size: 1.5rem; /* Adjust the font size */
+  color: #28a745 !important; 
+  font-size: 1.5rem; 
 }
 
 .navbar-toggler-icon {
@@ -15,16 +14,16 @@
 }
 
 .navbar-nav .nav-link {
-  color: #28a745 !important; /* White text for navigation links */
+  color: #28a745 !important;
   margin-right: -370px;
   margin-left: 400px;
 }
 
-/* Dropdown styles */
+
 .navbar-nav .nav-item .nav-link:hover,
 .navbar-nav .nav-item .nav-link:focus,
 .navbar-nav .nav-item .nav-link:active {
-  background-color: #000000; /* Dark background on hover/focus */
+  background-color: #000000; 
 }
 
 .navbar-nav .nav-item .nav-link,
@@ -34,18 +33,18 @@
 
 
 #sign:hover {
-  background-color: #000000; /* Darker green on hover */
+  background-color: #000000; 
 }
 
 .fixed-top {
   position: fixed !important;
   width: 100%;
   top: 0;
-  z-index: 1000; /* Adjust the z-index as needed */
+  z-index: 1000; 
 }
 #image {
-  max-width: 50%;
-  height: auto; /* Maintain aspect ratio for the image */
-  width: 150px; /* Adjust the width as needed */
+  max-width: 30%;
+  height: auto; 
+  width: 120px; 
 }
 

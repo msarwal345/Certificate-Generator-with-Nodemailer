@@ -5,43 +5,41 @@ import Footer from '../Footer/Footer';
 
 const AboutSection = () => {
   return (
-<>  
-  <NavScrollExample/>
-    <div className="about-section">
-      <h2>About us</h2>
-      <p>
-        Welcome to our textbook platform, where learning meets innovation. Our mission is to provide
-        an accessible and interactive learning experience for students and educators alike.
-      </p>
-      <div className="content-container">
-        <div className="image-container">
-          <img src="img1.jpg" alt="Description for Image 1" />
-        </div>
+    <>
+      <NavScrollExample />
+      <div className="about-section">
+        <h2>About Us</h2>
+        <p>
+          Welcome to our platform dedicated to simplifying the process of sending certificates via email. Our goal is to provide
+          a seamless and efficient solution for organizations, institutions, and businesses to manage and distribute certificates
+          to recipients in a hassle-free manner.
+        </p>
+        <div className="content-container">
+          <div className="image-container">
+            <img src="img1.jpg" alt="Description for Image 1" width="600" height="400" />
+          </div>
 
-        <div className="text-container">
-          <h2>Our Goals</h2>
-          <p>
-            We started small but we have big dreams. While Pressbooks is a versatile tool with myriad applications,
-            it has grown into the preferred platform for open educational publishing programs. There was a need for
-            an easy-to-use platform on which to create professional educational content in an open and ethical way,
-            and we responded.
-          </p>
-          <p>
-            Today, we want to drive the open publishing movement by partnering with institutions of higher education
-            around the world. We help our partners compete with large commercial publishers, while supporting their
-            immediate need to get accessible educational content into the hands of students. As we lead the open
-            movement, we will remain good listeners and good actors. We will keep developing products and services
-            that do good in the world. We will be your partner in open publishing.
-          </p>
-        </div>
-        <div className="image-container">
-          <img src="img2.jpg" alt="Description for Image 2" />
+          <div className="text-container">
+            <h2>Our Mission</h2>
+            <p>
+              At our core, we aim to revolutionize the certificate distribution process. With our intuitive platform, powered by the
+              latest technologies, we enable users to upload Excel files containing recipient information and effortlessly send
+              personalized certificates via email.
+            </p>
+            <p>
+              We understand the significance of recognizing achievements and milestones. Whether it's a course completion, workshop
+              acknowledgment, or any noteworthy accomplishment, our platform ensures that the certificate delivery is swift,
+              secure, and tailored to the unique identity of each recipient.
+            </p>
+          </div>
+
+          <div className="image-container">
+            <img src="img2.jpg" alt="Description for Image 2" width="600" height="400" />
+          </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
-
   );
 };
 

@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <div className='hero-container'>
       <div className='hero-background'>
-        <img src='read.png' alt='Book Image' className='hero-image' />
+        <img src='Herosec.webp' alt='Book Image' className='hero-image' />
       </div>
 
       <div className="hero-content">

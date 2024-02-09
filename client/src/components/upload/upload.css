@@ -1,79 +1,106 @@
-/* styles.css */
+.upload-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #4caf50; 
+  border-radius: 8px;
+  background-color: #f9f9f9; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  height: 425px;
+}
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-  }
-  
-  .cnt {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-  }
-  
-  .photo {
-    width: 25%; /* Adjusted width to make it smaller */
-    margin-left: 20px;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .upload-container {
-    width: 45%; /* Adjusted width */
-    padding: 15px; /* Adjusted padding */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  h2 {
-    color: #4caf50;
-    margin-bottom: 10px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 8px;
-  }
-  
-  input {
-    width: calc(100% - 20px);
-    margin-bottom: 10px;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .upload-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    margin-bottom: 10px; /* Added margin to the bottom */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-  }
-  
-  .upload-button:hover {
-    background-color: #45a049;
-  }
-  
-  .upload-result {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #4caf50;
-  }
-  
+h2 {
+  color: #4caf50 !important;
+  font-size: 2rem; 
+  margin-bottom: 50px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem; 
+
+}
+
+.upload-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.upload-button:hover {
+  background-color: #45a049;
+}
+
+.upload-result {
+  margin-top: 15px;
+  font-weight: bold;
+  color: #4caf50; 
+}
+
+.upload-container {
+  perspective: 1000px;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* Add other styles as needed */
+.rotate-button {
+  margin-bottom: 10px;
+}
+
+/* Other styles remain the same */

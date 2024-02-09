@@ -1,10 +1,9 @@
-/* About.css */
-
 .about-section {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
   padding-top: 100px;
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out; 
 }
 
 h2 {
@@ -15,16 +14,18 @@ p {
   line-height: 1.5;
 }
 
-.image-container {
+.content-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-container {
   margin-top: 20px;
   padding-bottom: 20px;
 }
 
 .image-container img {
-  max-width: 70%;
+  max-width: 100%;
   height: auto;
 }
-
-/* Add more specific styling as needed */

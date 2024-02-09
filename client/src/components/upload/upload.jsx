@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './upload.css'; // Import the provided CSS file
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './upload.css';
 import NavScrollExample from '../Navbar/Navbar';
 
 const Upload = () => {
@@ -29,29 +31,46 @@ const Upload = () => {
         const fetchRes = await fetch('http://localhost:5000/send-certificates');
         const fetchResult = await fetchRes.json();
         console.log(fetchResult);
+
+        
+        toast.success('Certificates sent successfully!', {
+          position: "top-right",
+          autoClose: 3000, 
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+        });
       }
     } catch (error) {
       console.error("Error uploading file", error);
+      toast.error('Error uploading file', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+      });
     }
   }
 
   return (
     <>
       <NavScrollExample />
-      <div className='cnt' style={{ display: "flex" }}>
-        <div className='photo' style={{ width: "40%", marginLeft: "45px" }}>
-          <img src='open.png' style={{ width: "100%" }} />
-        </div>
-        <div className="upload-container" style={{ marginLeft: "205px" }}>
-          <h2>Upload Excel File</h2>
+      <div className='upload-container'>
+        <h2>Upload Excel File</h2>
+        <label htmlFor="fileInput">Choose an Excel file:</label>
+        <input type="file" id="fileInput" name="file" accept=".xlsx, .xls" onChange={handleChange} />
+        <button className="upload-button" onClick={handleSubmit}>Submit</button>
+        {uploadFile && <div className="upload-result">{uploadFile}</div>}
+        <p>
+          Don't have an Excel file? You can convert using an free online tool like{' '}
+          <a href="https://www.ilovepdf.com/" target="_blank" rel="noopener noreferrer">
+            Excel Tool
+          </a>
+          .
+        </p>
 
-          <label htmlFor="fileInput">Choose an Excel file:</label>
-          <input type="file" id="fileInput" name="file" accept=".xlsx, .xls" onChange={handleChange} />
-
-          <button className="upload-button" onClick={handleSubmit}>Submit</button>
-
-          {uploadFile && <div className="upload-result">{uploadFile}</div>}
-        </div>
+        <ToastContainer />
       </div>
     </>
   );
