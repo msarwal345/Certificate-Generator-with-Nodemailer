@@ -32,13 +32,13 @@ This project is a certificate generator that utilizes Nodemailer for sending cer
    ```
   2. Navigate to the project folder:
 
-  ```
+   ```
    cd Certificate-Generator-with-Nodemailer
    ```
   3. Install dependencies:
-      ```
-      npm install
-      ```
+    ```
+     npm install    ```
+
  ### Configuration
 
   - Create a .env file in the project root and configure the following:
