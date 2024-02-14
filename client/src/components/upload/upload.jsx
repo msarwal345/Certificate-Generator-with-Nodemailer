@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './upload.css';
 import NavScrollExample from '../Navbar/Navbar';
@@ -8,6 +8,7 @@ import NavScrollExample from '../Navbar/Navbar';
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [uploadFile, setUploadFile] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFile(e.target.files[0]);
@@ -22,6 +23,9 @@ const Upload = () => {
     const formData = new FormData();
     formData.append('file', file);
 
+  
+    setLoading(true);
+
     try {
       const response = await axios.post('http://localhost:5000/', formData);
       const result = response.data.message;
@@ -32,10 +36,9 @@ const Upload = () => {
         const fetchResult = await fetchRes.json();
         console.log(fetchResult);
 
-        
         toast.success('Certificates sent successfully!', {
           position: "top-right",
-          autoClose: 3000, 
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -43,13 +46,9 @@ const Upload = () => {
       }
     } catch (error) {
       console.error("Error uploading file", error);
-      toast.error('Error uploading file', {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-      });
+      alert('Error uploading file');
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -60,17 +59,13 @@ const Upload = () => {
         <h2>Upload Excel File</h2>
         <label htmlFor="fileInput">Choose an Excel file:</label>
         <input type="file" id="fileInput" name="file" accept=".xlsx, .xls" onChange={handleChange} />
-        <button className="upload-button" onClick={handleSubmit}>Submit</button>
+        <button className="upload-button" onClick={handleSubmit} disabled={loading}>
+          {loading ? 'Please wait...' : 'Submit'}
+        </button>
         {uploadFile && <div className="upload-result">{uploadFile}</div>}
-        <p>
-          Don't have an Excel file? You can convert using an free online tool like{' '}
-          <a href="https://www.ilovepdf.com/" target="_blank" rel="noopener noreferrer">
-            Excel Tool
-          </a>
-          .
-        </p>
-
-        <ToastContainer />
+        <p>Important Note:</p>
+        <p>Please provide the Name, Email, and Fortext for the certificate in the Excel Sheet. Indicate the purpose, such as course completion, etc., in the Fortext section.</p>
+        <ToastContainer position="top-right" autoClose={5000} />
       </div>
     </>
   );
