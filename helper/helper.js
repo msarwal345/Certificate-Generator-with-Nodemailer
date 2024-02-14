@@ -63,8 +63,7 @@
         </div>
 
         <div class="reason">
-            For deftly defying the laws of gravity<br/>
-            and flying high
+            For ${record.Fortext}<br/>
         </div>
     </div>
 </body>

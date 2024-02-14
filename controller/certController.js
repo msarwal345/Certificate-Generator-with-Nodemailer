@@ -2,9 +2,7 @@ const puppeteer = require('puppeteer');
 const nodemailer = require('nodemailer');
 const express = require('express');
 const CertModel = require('../model/model'); 
-const config=require('config');
-const password=config.get('password')
-const email=config.get('user')
+require('dotenv').config();
 const getCertificateHTML=require('../helper/helper');
 
 
@@ -13,8 +11,8 @@ const router = express.Router();
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: email,
-    pass: password,
+    user: process.env.USER,
+    pass: process.env.PASSWORD,
   },
 });
 
@@ -42,7 +40,7 @@ router.get("/send-certificates", async (req, res) => {
       const pdfFileName = `${record.Name}_certificate.pdf`;
 
       await transporter.sendMail({
-        from: email,
+        from: process.env.USER,
         to: record.Email,
         subject: 'Certificate',
         text: 'Congratulations on Getting the Certificate!',

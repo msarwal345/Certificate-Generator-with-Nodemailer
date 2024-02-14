@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const config=require('config');
-const uri=config.get('url')
-
+require('dotenv').config();
+const uri=process.env.URL;
 mongoose.connect(uri)
   .then(() => console.log('DataBase Connected'))
   .catch(() => console.log('Error'));
@@ -9,6 +8,7 @@ mongoose.connect(uri)
 const newSchema = new mongoose.Schema({
   Name: { type: String },
   Email: { type: String },
+  Fortext : { type: String }
 });
 
 const CertModel = mongoose.model('Cert', newSchema);
